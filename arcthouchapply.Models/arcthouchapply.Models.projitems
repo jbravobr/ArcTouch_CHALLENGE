@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{45976EE2-43EE-4C81-81C1-5C20AA4249B2}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>arcthouchapply.Models</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BaseEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Date.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Genre.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Image.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Results.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Root.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prism:PrismApplication
+    xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+    xmlns     ="http://xamarin.com/schemas/2014/forms"
+    xmlns:x    ="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class    ="arcthouchapply.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- COLORS -->
+            <Color
+                x:Key="Accent">#FFDA125F</Color>
+            <Color
+                x:Key="Accent-2">#525ABB</Color>
+            <Color
+                x:Key="MainWrapperBackgroundColor">#EFEFEF</Color>
+            <Color
+                x:Key="BasePageColor">#FFFFFF</Color>
+            <Color
+                x:Key="BaseTextColor">#666666</Color>
+            <!-- FONTS -->
+            <OnPlatform
+                x:Key          ="Montserrat-Bold"
+                x:TypeArguments="x:String">
+                <OnPlatform.Android>Montserrat-Bold.ttf#Montserrat</OnPlatform.Android>
+                <OnPlatform.iOS>Montserrat-Bold</OnPlatform.iOS>
+            </OnPlatform>
+            <OnPlatform
+                x:Key          ="Montserrat-Light"
+                x:TypeArguments="x:String">
+                <OnPlatform.Android>Montserrat-Light.ttf#Montserrat</OnPlatform.Android>
+                <OnPlatform.iOS>Montserrat-Light</OnPlatform.iOS>
+            </OnPlatform>
+            <OnPlatform
+                x:Key          ="Montserrat-Medium"
+                x:TypeArguments="x:String">
+                <OnPlatform.Android>Montserrat-Medium.ttf#Montserrat</OnPlatform.Android>
+                <OnPlatform.iOS>Montserrat-Medium</OnPlatform.iOS>
+            </OnPlatform>
+            <OnPlatform
+                x:Key          ="Montserrat-Regular"
+                x:TypeArguments="x:String">
+                <OnPlatform.Android>Montserrat-Regular.ttf#Montserrat</OnPlatform.Android>
+                <OnPlatform.iOS>Montserrat-Regular</OnPlatform.iOS>
+            </OnPlatform>
+            <OnPlatform
+                x:Key          ="FontAwesome"
+                x:TypeArguments="x:String">
+                <OnPlatform.Android>fontawesome-webfont.ttf#FontAwesome</OnPlatform.Android>
+                <OnPlatform.iOS>FontAwesome</OnPlatform.iOS>
+            </OnPlatform>
+            <!-- STYLES -->
+            <Style
+                x:Key     ="PrimaryActionButtonStyle"
+                TargetType="Button">
+                <Setter
+                    Property="BackgroundColor"
+                    Value   ="{StaticResource Accent}" />
+                <Setter
+                    Property="TextColor"
+                    Value   ="Black" />
+                <Setter
+                    Property="HeightRequest"
+                    Value   ="44" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>

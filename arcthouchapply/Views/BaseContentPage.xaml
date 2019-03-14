@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns ="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="arcthouchapply.Views.BaseContentPage">
+    <NavigationPage.TitleView>
+        <StackLayout
+            Orientation      ="Horizontal"
+            VerticalOptions  ="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Padding          ="0">
+            <StackLayout.Spacing>
+                <OnPlatform
+                    x:TypeArguments="x:Double">
+                    <OnPlatform.iOS>-10</OnPlatform.iOS>
+                    <OnPlatform.Android>10</OnPlatform.Android>
+                </OnPlatform>
+            </StackLayout.Spacing>
+            <StackLayout.Margin>
+                <OnPlatform
+                    x:TypeArguments="Thickness">
+                    <OnPlatform.Android>50,-10</OnPlatform.Android>
+                    <OnPlatform.iOS>66,0</OnPlatform.iOS>
+                </OnPlatform>
+            </StackLayout.Margin>
+            <Image
+                Aspect="AspectFit"
+                Source="arctouchlogo.png">
+                <Image.WidthRequest>
+                    <OnPlatform
+                        x:TypeArguments="x:Double">
+                        <OnPlatform.iOS>77</OnPlatform.iOS>
+                        <OnPlatform.Android>66</OnPlatform.Android>
+                    </OnPlatform>
+                </Image.WidthRequest>
+                <Image.HeightRequest>
+                    <OnPlatform
+                        x:TypeArguments="x:Double">
+                        <OnPlatform.iOS>77</OnPlatform.iOS>
+                        <OnPlatform.Android>66</OnPlatform.Android>
+                    </OnPlatform>
+                </Image.HeightRequest>
+            </Image>
+            <Label
+                Text                 ="{Binding PageTitle}"
+                FontSize             ="Large"
+                Margin               ="-10,0"
+                FontFamily           ="{StaticResource Montserrat-Bold}"
+                VerticalTextAlignment="Center">
+                <Label.TextColor>
+                    <OnPlatform
+                        x:TypeArguments="Color">
+                        <OnPlatform.Android>White</OnPlatform.Android>
+                        <OnPlatform.iOS>Black</OnPlatform.iOS>
+                    </OnPlatform>
+                </Label.TextColor>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+    </ContentPage.Content>
+</ContentPage>
