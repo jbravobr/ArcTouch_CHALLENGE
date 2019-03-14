@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+    xmlns          ="http://xamarin.com/schemas/2014/forms"
+    xmlns:x         ="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base      ="clr-namespace:arcthouchapply.Views"
+    xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:templates ="clr-namespace:arcthouchapply.Views.DataTemplates"
+    xmlns:converters="clr-namespace:arcthouchapply.Converters"
+    xmlns:b         ="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    BackgroundColor ="Lavender"
+    x:Class         ="arcthouchapply.Views.UpcomingMoviePage">
+    <base:BaseContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBooleanConverter
+                x:Key="inverseBooleanConverter" />
+        </ResourceDictionary>
+    </base:BaseContentPage.Resources>
+    <base:BaseContentPage.Content>
+        <StackLayout>
+            <!-- SEARCH BAR -->
+            <SearchBar
+                x:Name     ="searchBar"
+                Text       ="{Binding SearchText}"
+                IsEnabled  ="{Binding IsLoading, Converter={StaticResource inverseBooleanConverter}}"
+                Placeholder="Search for a movie">
+                <SearchBar.Behaviors>
+                    <b:EventToCommandBehavior
+                        Command               ="{Binding SearchCommand}"
+                        EventName             ="TextChanged"
+                        EventArgsParameterPath="NewTextValue" />
+                </SearchBar.Behaviors>
+            </SearchBar>
+            <!-- LOADING -->
+            <ActivityIndicator
+                IsEnabled        ="{Binding IsLoading}"
+                IsVisible        ="{Binding IsLoading}"
+                IsRunning        ="{Binding IsLoading}"
+                VerticalOptions  ="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                WidthRequest     ="100"
+                HeightRequest    ="100"
+                Color            ="{StaticResource Accent}" />
+            <!-- MOVIE LIST -->
+            <StackLayout
+                IsVisible="{Binding IsLoading, Converter={StaticResource inverseBooleanConverter}}">
+                <syncfusion:SfListView
+                    x:Name       ="listViewMovies"
+                    SelectionMode="None"
+                    AutoFitMode  ="Height"
+                    IsBusy       ="{Binding IsLoadingMore}"
+                    ItemAppearing="Handle_ItemAppearing"
+                    Padding      ="0"
+                    TapCommand   ="{Binding SelectedMovieCommand}"
+                    ItemsSource  ="{Binding Movies}">
+                    <syncfusion:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <templates:UpcomingMovieItemTemplateViewCell />
+                        </DataTemplate>
+                    </syncfusion:SfListView.ItemTemplate>
+                </syncfusion:SfListView>
+            </StackLayout>
+        </StackLayout>
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>
